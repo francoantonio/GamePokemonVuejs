@@ -35,18 +35,18 @@ export default {
       (this.pokemonArr = []),
         (this.pokemon = {}),
         (this.showPokemon = false),
-        (this.shoAnswer = false),
+        (this.showAnswer = false),
         (this.message = ""),
         this.mixPokemonArray();
     },
     checkAnswer(pokemonId) {
       if (this.showPokemon) return;
-      this.showPokemon = true;
       this.message =
         pokemonId == this.pokemon.id
           ? `Ganaste, ${this.pokemon.name}`
           : `Oops, era ${this.pokemon.name}`;
       this.showAnswer = true;
+      this.showPokemon = true;
     },
     async mixPokemonArray() {
       this.pokemonArr = await getPokemonOptions(this.pokemonArr);
