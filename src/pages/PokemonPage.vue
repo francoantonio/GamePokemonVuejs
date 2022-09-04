@@ -2,8 +2,16 @@
   <h1 v-if="!pokemon">Espere por favor...</h1>
   <div v-else>
     <h1>¿Quién es ese Pokémon?</h1>
-    <PokemonPicture :pokemonId="pokemon.id" :showPokemon="showPokemon" />
-    <PokemonOption :pokemons="pokemonArr" @selection="checkAnswer" />
+    <PokemonPicture
+      data-test="picture"
+      :pokemonId="pokemon.id"
+      :showPokemon="showPokemon"
+    />
+    <PokemonOption
+      data-test="options"
+      :pokemons="pokemonArr"
+      @selection="checkAnswer"
+    />
 
     <template v-if="showAnswer">
       <h2 class="fade-in">{{ message }}</h2>
