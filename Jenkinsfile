@@ -2,8 +2,21 @@ pipeline {
   agent any
   stages {
     stage('test') {
-      steps {
-        sh 'echo "test"'
+      parallel {
+        stage('test') {
+          steps {
+            sh 'echo "test"'
+          }
+        }
+
+        stage('install package') {
+          steps {
+            sh 'yarn'
+            sh 'yarn build'
+            sh 'node -v'
+          }
+        }
+
       }
     }
 
