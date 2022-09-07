@@ -3,9 +3,9 @@ pipeline {
   stages {
     stage('install package') {
       steps {
+        sh 'apt install nodejs'
         sh 'node -v'
         sh 'yarn'
-        sh 'apt install nodejs'
       }
     }
 
