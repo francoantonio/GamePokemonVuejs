@@ -11,9 +11,9 @@ pipeline {
 
         stage('install package') {
           steps {
+            sh 'node -v'
             sh 'yarn'
             sh 'yarn build'
-            sh 'node -v'
           }
         }
 
